@@ -4,7 +4,7 @@ Measuring how much an LLM's *reasoning trajectory* changes when its prompt is
 perturbed — and training models to be robust against it.
 
 This repository contains the reference implementation for the **Symbolic Drift**
-benchmark and the GRPO training recipes used in the accompanying paper. Given a
+benchmark and the post training recipes used in the accompanying paper. Given a
 chain-of-thought response, we map each reasoning step to a symbol from a small
 ontology, then compare the resulting symbol sequence against a reference using
 sequence-aware (DTW, edit-distance) and distributional (Jensen–Shannon) metrics.
