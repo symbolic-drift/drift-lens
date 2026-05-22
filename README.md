@@ -157,25 +157,6 @@ profile name. Set `AWS_PROFILE` if you need to pick a non-default one.
 
 ---
 
-## Metrics, briefly
-
-Given a reference symbol sequence $S^* = [s^*_1, \dots, s^*_n]$ and a candidate
-sequence $S = [s_1, \dots, s_m]$:
-
-- **DTW distance** — embeds each symbol with `all-MiniLM-L6-v2`, computes
-  cosine-DTW, normalizes by alignment-path length.
-- **Edit distance** $d_\text{seq}$ — symbol-level Levenshtein normalized by
-  $\max(|S|, |S^*|)$.
-- **Jensen–Shannon distance** $d_\text{dist}$ — between symbol histograms,
-  normalized to $[0, 1]$ by $\sqrt{\log 2}$.
-- **Drift distance** $d(S, S^*) = \alpha \cdot d_\text{seq} + (1{-}\alpha)\cdot d_\text{dist}$.
-- **SRI (Symbolic Robustness Index)** = $1 - \frac{1}{K}\sum_k d(S_0, S_k)$
-  over $K$ perturbed variants.
-
-See `metrics.py` for the precise definitions.
-
----
-
 ## Citation
 
 A preprint is forthcoming. In the meantime please cite the dataset card:
