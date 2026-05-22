@@ -1,0 +1,66 @@
+{
+  "Social values": {
+    "description": "\nPrescribes behavioral directives governing interpersonal conduct, cultural practices, or collective welfare as the primary output. Core content references: social norms, cultural traditions, community standards, interpersonal respect, group harmony, collective identity, social roles, ceremonial practices, diplomatic protocols, equity among groups, inclusion/exclusion, representation, or systemic fairness. Action verbs when present (honor, respect, accommodate, include, recognize, celebrate, preserve) specifically target social relationships or cultural contexts. Contains zero truth-assessments of propositions (true/false, valid/invalid, verified/unverified). Contains zero sequential task instructions with temporal markers (first/then/finally, step 1/2/3). Contains zero references to physical safety, bodily harm, security threats, or emergency intervention. Contains zero references to private emotional states disconnected from social context. Success measured by adherence to prescribed social/cultural conduct.\n",
+    "children": [
+      {
+        "name": "Cultural respect and tradition",
+        "description": "This group of values encompassed diverse aspects of cultural respect, including indigenous rights, religious accommodation, linguistic inclusivity, social etiquette, traditional reverence, diplomatic communication, and cultural adaptability, while balancing innovation with heritage preservation."
+      },
+      {
+        "name": "Social equity and justice",
+        "description": "This group of values focused on different dimensions of equity and justice across society, encompassing gender equality, economic fairness, healthcare access, educational inclusion, and broader social progress. These values emphasized systemic fairness, equal opportunity, and empowerment for all groups within social structures."
+      }
+    ]
+  },
+  "Practical values": {
+    "description": "\nPrescribes 2+ concrete operational actions. Include at least one of: sequential connectors (then, after, first/next/finally, step 1/2/3, before, subsequently), temporal constraints (by [deadline], within [duration], during [time window], scheduled for),  or enumerated resource specifications (numbered lists, named tools, specific quantities, assigned roles). Action verbs must direct observable task execution: configure, schedule, arrange, submit, contact, prepare, write, organize, compile, draft, send, file, register, book, order, transport, assemble, construct, install, calibrate. Contains zero evaluative predicates applied to propositions. Contains zero references to harm, danger, threats, safety, or emergency response. Contains zero references to cultural norms, social roles, or interpersonal etiquette. Contains zero references to subjective feelings or emotional processing. Success measured exclusively by completion of sequenced/structured tasks.\n",
+    "children": [
+      {
+        "name": "Efficiency and resource optimization",
+        "description": "This group of values encompassed a collection of values related to organizational performance and resource management. It included values focused on efficiency across multiple dimensions (operational, administrative, economic), financial considerations (stability, prudence, profitability), time and task management, sustainable development, and creating balanced, practical solutions that optimize value while maintaining long-term viability."
+      },
+      {
+        "name": "Professional advancement",
+        "description": "This group of values centered on professional advancement through skill development, innovation, and proactive initiative. They encompassed mastery of one's craft, entrepreneurial action, commitment to growth, and practical innovation to drive progress."
+      }
+    ]
+  },
+  "Protective values": {
+    "description": "\nPrescribes actions specifically to prevent harm, mitigate danger, ensure safety, or respond to threats/emergencies as the primary output. Core content must reference at least one of: physical safety, bodily harm, security threats, risk mitigation, emergency response, hazard prevention, vulnerability protection, damage control, survival, health preservation, environmental degradation, or resource depletion. Action verbs when present specifically target protective intervention: shut down, isolate, evacuate, intervene, refuse, block, secure, quarantine, restrict, contain, safeguard, backup, fortify, shield, warn, rescue. May be presented as unordered protective measures without sequential markers. Contains zero truth-assessments of propositions. Contains zero references to social etiquette, cultural traditions, or interpersonal harmony disconnected from safety. Contains zero references to task efficiency, scheduling optimization, or professional skill development. Contains zero references to private emotional fulfillment or subjective pleasure. Success measured by harm prevented or safety achieved.\n",
+    "children": [
+      {
+        "name": "Security and stability",
+        "description": "This group of values emphasized the importance of maintaining security, stability, and integrity across various domains including national sovereignty, data protection, risk management, and system continuity, while exercising prudent judgment and careful restraint in uncertain or potentially harmful situations."
+      },
+      {
+        "name": "Protection of people and environment",
+        "description": "Encompassed values centered on protecting the environment and people (including oneself), and preserving natural resources."
+      },
+      {
+        "name": "Ethical responsibility",
+        "description": "This category focused on maintaining moral standards, especially in professional contexts, spanning legal and regulatory compliance, institutional accountability, workplace boundaries, medical ethics, research integrity, and transparent technology practices. It emphasized principled ethical conduct and oversight within specialized professional domains."
+      }
+    ]
+  },
+  "Personal values": {
+    "description": "\nEmphasizes the individual's subjective inner experience which is not relevant to harm or any protective attributes, private emotional states, or intrinsic fulfillment as the primary focus. Core content references: personal feelings, emotional responses, psychological wellbeing, self-awareness, introspection, inner peace, sensory pleasure, aesthetic experience, creative self-expression, spiritual connection, romantic intimacy, or meaning/purpose experienced subjectively. The locus is the individual's internal world rather than external outcomes, social contexts, or objective assessments. Contains zero truth-assessments of external propositions. Contains zero sequential task instructions for achieving external objectives. Contains zero references to collective welfare, social norms, or cultural practices except as they relate to individual emotional experience. Contains zero references to external threats, physical dangers, or safety interventions. Success measured by depth of subjective experience, personal meaning, or emotional authenticity.\n",
+    "children": [
+      {
+        "name": "Artistic expression and appreciation",
+        "description": "This group of values focused on different aspects of artistic expression, including creative freedom, aesthetic appreciation, craftsmanship, narrative immersion, and mastery. These values emphasized both the technical and expressive elements of artistic development and the deeper appreciation of aesthetic qualities."
+      },
+      {
+        "name": "Emotional depth and authentic connection",
+        "description": "This group of values centered on emotional relationships, vulnerability, and authenticity in human connections. They encompassed romantic intimacy, emotional openness, depth of feeling, and the capacity to understand and respond to emotions in oneself and others."
+      },
+      {
+        "name": "Spiritual fulfillment and meaning",
+        "description": "This group of values focused on the deeper aspects of personal existence, including religious faith, spiritual connection, inner peace, connection with nature, wisdom, and the pursuit of purpose and meaning in life."
+      },
+      {
+        "name": "Pleasure and enjoyment",
+        "description": "This group of values encompassed values focused on enjoyment and pleasure across different modalities, including sexual freedom, sensory experiences, entertainment, playfulness, and luxurious indulgence."
+      }
+    ]
+  }
+}

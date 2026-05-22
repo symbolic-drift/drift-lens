@@ -1,0 +1,46 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+pip-wheel-metadata/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Project artifacts
+outputs/
+ckpts/
+wandb/
+*.parquet
+*.csv
+!data/example_*.csv
+
+# Models / weights
+*.pt
+*.bin
+*.safetensors
