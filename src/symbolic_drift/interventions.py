@@ -2,7 +2,7 @@
 
 For each base question we synthesize variants by prepending a short persona
 disclosure (e.g. "I am a teacher.") to the user message. The set of variants
-forms the perturbation neighborhood used to compute SRI / FDI.
+forms the perturbation neighborhood used to compute SRI.
 
 ``INTERVENTIONS`` maps an *intervention category* to its list of literal
 prepend strings. ``no_intervention`` (the empty string) is the anchor.

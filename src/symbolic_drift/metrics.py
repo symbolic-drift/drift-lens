@@ -17,7 +17,7 @@ import html
 import json
 import re
 from collections import Counter
-from typing import Iterable, Sequence
+from typing import Sequence
 
 import numpy as np
 
@@ -191,7 +191,7 @@ def jensen_shannon_distance(
 
 
 # --------------------------------------------------------------------------- #
-# Combined drift, SRI, FDI, ROD
+# Combined drift, SRI
 # --------------------------------------------------------------------------- #
 
 def compute_drift_distance(
@@ -232,43 +232,6 @@ def compute_sri(
 ) -> float:
     """Symbolic Robustness Index: ``1 − D_pert(Q)``. Higher is more robust."""
     return 1.0 - compute_perturbation_drift(anchor, variants, alpha=alpha)
-
-
-def compute_fdi(
-    anchor: Sequence[str],
-    variants: Sequence[Sequence[str]],
-    *,
-    anchor_outcome=None,
-    variant_outcomes: Sequence | None = None,
-    alpha: float = 0.5,
-) -> float:
-    """Faithfulness Drift Index.
-
-    ``FDI(Q) = (1/K) Σ g_k · d(S_0, S_k)``
-
-    The faithfulness gate is ``g_k = 1[A_k = A_0]`` when outcomes are provided,
-    otherwise ``g_k = 1`` (identity). Lower is more faithful.
-    """
-    if not variants:
-        return 0.0
-    use_gate = anchor_outcome is not None and variant_outcomes is not None
-    total = 0.0
-    for k, variant in enumerate(variants):
-        gate = 1.0 if (not use_gate or variant_outcomes[k] == anchor_outcome) else 0.0
-        total += gate * compute_drift_distance(anchor, variant, alpha=alpha)
-    return total / len(variants)
-
-
-def compute_corpus_symbol_distribution(sequences: Iterable[Sequence[str]]) -> dict[str, float]:
-    """Corpus-level symbol distribution: ``p(m) = (Σ count(m)) / Σ |S^(n)|``."""
-    counts: Counter[str] = Counter()
-    total = 0
-    for seq in sequences:
-        counts.update(seq)
-        total += len(seq)
-    if total == 0:
-        return {}
-    return {k: v / total for k, v in counts.items()}
 
 
 # --------------------------------------------------------------------------- #

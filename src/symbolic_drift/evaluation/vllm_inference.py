@@ -4,7 +4,7 @@ For each row in the test parquet we:
 
 1. Generate a reasoning response from the target model with vLLM.
 2. Map the response to a symbol sequence using a Bedrock rater.
-3. Compute DTW, SRI, and ROD against the row's ground-truth symbols.
+3. Compute DTW and SRI against the row's ground-truth symbols.
 
 Example
 -------
@@ -155,8 +155,7 @@ def main() -> None:
     df_out = pd.DataFrame(out_rows)
     print(
         f"Overall  DTW: {df_out['dtw_score'].mean():.4f}  "
-        f"SRI: {df_out['sri_score'].mean():.4f}  "
-        f"ROD: {df_out['rod_score'].mean():.4f}"
+        f"SRI: {df_out['sri_score'].mean():.4f}"
     )
 
     safe_model_name = args.model.rstrip("/").split("/")[-1]

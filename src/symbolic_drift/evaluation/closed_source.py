@@ -4,7 +4,7 @@ For each row in the test parquet we:
 
 1. Generate a reasoning response from the target model.
 2. Map the response to a symbol sequence using the rater model.
-3. Compute DTW, SRI, and ROD against the row's ground-truth symbols.
+3. Compute DTW and SRI against the row's ground-truth symbols.
 
 Example
 -------
@@ -26,11 +26,9 @@ import pandas as pd
 
 from ..clients import MODEL_ALIASES, build_client
 from ..metrics import (
-    compute_corpus_symbol_distribution,
     compute_drift_distance,
     compute_dtw_distance,
     extract_symbols,
-    jensen_shannon_distance,
 )
 from ..prompts import SYSTEM_PROMPT, build_mapping_prompt, load_ontology
 
@@ -66,7 +64,7 @@ def repeat_rows(rows, repeat_count: int):
 
 
 def score_response(mapping_response: str, ground_truth: list[str]) -> dict:
-    """Compute DTW / SRI / ROD on a single (response_mapping, gt) pair."""
+    """Compute DTW and SRI on a single (response_mapping, gt) pair."""
     response_symbols = extract_symbols(mapping_response)
     if not isinstance(ground_truth, list):
         raise TypeError(f"ground_truth must be list[str]: {ground_truth!r}")
@@ -77,16 +75,11 @@ def score_response(mapping_response: str, ground_truth: list[str]) -> dict:
     drift = compute_drift_distance(response_symbols, ground_truth, alpha=0.5)
     sri_score = 1.0 - drift
 
-    p_response = compute_corpus_symbol_distribution([response_symbols])
-    p_reference = compute_corpus_symbol_distribution([ground_truth])
-    rod_score = 1.0 - jensen_shannon_distance(p_response, p_reference, normalize=True)
-
     return {
         "response_symbols": response_symbols,
         "dtw_path": dtw_path,
         "dtw_score": dtw_score,
         "sri_score": sri_score,
-        "rod_score": rod_score,
     }
 
 
@@ -202,8 +195,7 @@ def main() -> None:
     df_out = pd.DataFrame(out_rows)
     print(
         f"Overall  DTW: {df_out['dtw_score'].mean():.4f}  "
-        f"SRI: {df_out['sri_score'].mean():.4f}  "
-        f"ROD: {df_out['rod_score'].mean():.4f}"
+        f"SRI: {df_out['sri_score'].mean():.4f}"
     )
 
     suffix = generator.model_id.split(".")[-1].replace(":", "_")

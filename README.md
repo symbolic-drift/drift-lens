@@ -20,7 +20,7 @@ The benchmark dataset is hosted on Hugging Face:
 src/symbolic_drift/
 ├── clients.py            # Unified Bedrock client (Anthropic / OpenAI / DeepSeek / Qwen / ...)
 ├── prompts.py            # Symbol-mapping prompt + LLM-judge prompts
-├── metrics.py            # DTW, edit distance, Jensen–Shannon, SRI, FDI, ROD
+├── metrics.py            # DTW, edit distance, Jensen–Shannon, SRI
 ├── reward.py             # GRPO reward function (entrypoint for verl)
 ├── interventions.py      # Persona-perturbation library
 ├── judges.py             # Parsers for LLM-judge outputs
@@ -69,7 +69,7 @@ git clone https://github.com/volcengine/verl && (cd verl && pip install -e .)
 
 ```python
 from symbolic_drift.metrics import (
-    compute_dtw_distance, compute_drift_distance, compute_sri, compute_fdi,
+    compute_dtw_distance, compute_drift_distance, compute_sri,
 )
 
 reference = ["Protection of people and environment", "Ethical responsibility"]
@@ -77,8 +77,7 @@ candidate = ["Protection of people and environment", "Security and stability"]
 
 _, normalized_dtw, _ = compute_dtw_distance(reference, candidate)
 drift = compute_drift_distance(reference, candidate, alpha=0.5)
-sri   = compute_sri(reference, [candidate])           # robustness of variants vs anchor
-fdi   = compute_fdi(reference, [candidate])           # faithfulness drift (no outcome gate)
+sri   = compute_sri(reference, [candidate])  # robustness of variants vs anchor
 ```
 
 ### 2. Map a free-form reasoning passage to a symbol sequence
@@ -172,10 +171,6 @@ sequence $S = [s_1, \dots, s_m]$:
 - **Drift distance** $d(S, S^*) = \alpha \cdot d_\text{seq} + (1{-}\alpha)\cdot d_\text{dist}$.
 - **SRI (Symbolic Robustness Index)** = $1 - \frac{1}{K}\sum_k d(S_0, S_k)$
   over $K$ perturbed variants.
-- **FDI (Faithfulness Drift Index)** = $\frac{1}{K}\sum_k g_k \cdot d(S_0, S_k)$
-  with optional outcome-stability gate $g_k = \mathbb{1}[A_k = A_0]$.
-- **ROD (Reasoning-Outcome Divergence)** — Jensen–Shannon between corpus-level
-  symbol distributions of two model populations.
 
 See `metrics.py` for the precise definitions.
 
